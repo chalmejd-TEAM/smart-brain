@@ -9,7 +9,7 @@ import Register from './Components/Register/Register';
 import ParticlesBg from 'particles-bg';
 import {React, Component} from 'react';
 
-const clarifaiRequest = (imageUrl, cID, cPAT) => {
+const clarifaiRequest = (imageUrl) => {
   // Your PAT (Personal Access Token) can be found in the Account's Security section
   const PAT = '9bbc3ebbdf1f4647b9aedad03470c118';
   // Specify the correct user_id/app_id pairings
@@ -114,7 +114,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-    fetch("https://api.clarifai.com/v2/models/face-detection/outputs", clarifaiRequest(this.state.input, USER_ID, PAT))
+    fetch("https://api.clarifai.com/v2/models/face-detection/outputs", clarifaiRequest(this.state.input))
         .then(response => response.json())
         .then(response => {
           if (response) {
