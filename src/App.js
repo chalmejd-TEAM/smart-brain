@@ -15,7 +15,8 @@ const clarifaiRequest = (imageUrl) => {
   const PAT = process.env.clarifaiPAT;
   // Specify the correct user_id/app_id pairings
   // Since you're making inferences outside your app's scope
-  const USER_ID = process.env.clarifaiID;       
+  const USER_ID = process.env.clarifaiID; 
+  console.log(clarifaiID);      
   const APP_ID = 'face-detection';
   // Change these to whatever model and image URL you want to use
   const IMAGE_URL = imageUrl;
