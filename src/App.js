@@ -12,10 +12,10 @@ import {React, Component} from 'react';
 
 const clarifaiRequest = (imageUrl) => {
   // Your PAT (Personal Access Token) can be found in the Account's Security section
-  const PAT = '9bbc3ebbdf1f4647b9aedad03470c118';
+  const PAT = process.env.clarifaiPAT;
   // Specify the correct user_id/app_id pairings
   // Since you're making inferences outside your app's scope
-  const USER_ID = 'chalmejd';       
+  const USER_ID = process.env.clarifaiID;       
   const APP_ID = 'face-detection';
   // Change these to whatever model and image URL you want to use
   const IMAGE_URL = imageUrl;
