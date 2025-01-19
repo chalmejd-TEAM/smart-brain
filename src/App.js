@@ -43,7 +43,6 @@ const clarifaiRequest = (imageUrl) => {
       },
       body: raw
   };
-  console.log(requestOptions)
   return requestOptions;
 }
 
