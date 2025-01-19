@@ -9,14 +9,16 @@ import Register from './Components/Register/Register';
 import ParticlesBg from 'particles-bg';
 import {React, Component} from 'react';
 
+const PAT = process.env.clarifaiPAT;
+const USER_ID = process.env.clarifaiID; 
 
-const clarifaiRequest = (imageUrl) => {
+const clarifaiRequest = (imageUrl, cID, cPAT) => {
   // Your PAT (Personal Access Token) can be found in the Account's Security section
-  const PAT = process.env.clarifaiPAT;
+  const PAT = cPAT;
   // Specify the correct user_id/app_id pairings
   // Since you're making inferences outside your app's scope
-  const USER_ID = process.env.clarifaiID; 
-  console.log(clarifaiID);      
+  const USER_ID = cID; 
+  console.log(cID);      
   const APP_ID = 'face-detection';
   // Change these to whatever model and image URL you want to use
   const IMAGE_URL = imageUrl;
@@ -116,7 +118,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-    fetch("https://api.clarifai.com/v2/models/face-detection/outputs", clarifaiRequest(this.state.input))
+    fetch("https://api.clarifai.com/v2/models/face-detection/outputs", clarifaiRequest(this.state.input, USER_ID, PAT))
         .then(response => response.json())
         .then(response => {
           if (response) {
